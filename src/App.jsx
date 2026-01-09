@@ -66,7 +66,7 @@ function AppRoutes() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/dynamic-routing/">
       <AuthProvider>
         <Navbar />
         <main>
