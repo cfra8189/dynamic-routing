@@ -132,12 +132,6 @@ body {
   letter-spacing: 0.6px;
 }
 
-/* Hide native cursor site-wide; we render the visible dot cursor via CursorFollower */
-html, body { cursor: none; }
-
-/* Force-hide the native cursor everywhere so only our custom dot shows */
-* , *::before, *::after { cursor: none !important; }
-
 /* App-wide utility classes for components */
 .app-container { padding: 20px; max-width: 900px; margin: 0 auto; background: rgba(255,255,255,0.60); border-radius: 0; border: 2px solid #0f1724; box-shadow: 12px 12px 0 rgba(2,6,23,0.9); }
 .layout-grid { display: grid; grid-template-columns: 1fr 320px; gap: 16px; grid-template-areas: "main aside"; align-items: start; }
@@ -247,8 +241,6 @@ html, body { cursor: none; }
   margin-bottom: 14px;
   transition: transform 120ms linear, box-shadow 120ms linear, margin 120ms linear;
   will-change: transform;
-  /* hide native cursor here; we show a visible custom dot via CursorFollower */
-  cursor: none;
   min-height: var(--card-min-height);
   display: flex;
   flex-direction: column;
@@ -266,14 +258,13 @@ html, body { cursor: none; }
 .task-card .task-actions { display:flex; gap:8px; align-items:center; margin-top:0; }
 
 /* Cursor and interaction rules */
-.task-card:active { cursor: none; }
+.task-card:active { }
 .task-card button,
 .task-card .btn,
 .task-card input,
 .task-card textarea,
 .task-card select,
 .task-card a {
-  cursor: none !important;
 }
 
 /* Keep cursor consistent across card to avoid flicker when moving the pointer */
@@ -283,12 +274,10 @@ html, body { cursor: none; }
 .task-card .task-meta,
 .task-card .task-body,
 .task-card .task-foot {
-  cursor: none;
 }
 
 /* Hide native cursor on cards/overlay so only our CursorFollower dot is visible */
 .task-card, .drag-overlay {
-  cursor: none;
 }
 
 /* While dragging, also keep native cursor hidden */
@@ -296,7 +285,6 @@ html, body { cursor: none; }
 .task-card:active,
 .drag-overlay[data-dragging="true"],
 .drag-overlay:active {
-  cursor: none !important;
 }
 .task-card .task-desc,
 .task-card input,
@@ -317,7 +305,6 @@ html, body { cursor: none; }
   border-radius: 0;
   box-shadow: 8px 8px 0 rgba(2,6,23,0.95);
   width: 340px;
-  cursor: none;
   border: 2px solid rgba(255,255,255,0.06);
   z-index: 9999;
 }
